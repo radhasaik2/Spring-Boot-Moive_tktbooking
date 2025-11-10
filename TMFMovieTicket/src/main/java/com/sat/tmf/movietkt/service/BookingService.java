@@ -11,6 +11,7 @@ public interface BookingService {
     Booking confirmBooking(Integer bookingId);
     List<Booking> findByUser(User user);
     void cancelBooking(Integer bookingId);
+	//creates method to retrieve data by id
 	Booking findById(Integer bookingId);
 }
 

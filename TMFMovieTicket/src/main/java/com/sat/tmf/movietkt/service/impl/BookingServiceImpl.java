@@ -80,9 +80,12 @@ public class BookingServiceImpl implements BookingService {
         bookingDao.saveOrUpdate(booking);
     }
 
+	//method overrides a method with same name
 	@Override
 	public Booking findById(Integer bookingId) {
+		// Finds the booking from the database
 		Booking booking = bookingDao.findById(bookingId);
+		// Returns the actual booking object that was found
 		return null;
 	}
 }

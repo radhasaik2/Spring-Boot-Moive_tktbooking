@@ -30,6 +30,7 @@ public class PaymentController {
     // Initiate payment
     @GetMapping("/start/{bookingId}")
     public String startPayment(@PathVariable Integer bookingId, Principal principal, Model model) {
+        //created a implementation method for findById in Booking-impl
         Booking booking = bookingService.findById(bookingId);
         User user = userService.findByUsername(principal.getName());
         Payment payment = paymentService.initiatePayment(booking, user, "RAZORPAY");
@@ -63,4 +64,5 @@ public class PaymentController {
         return start != -1 ? payload.substring(start, start + 36) : "unknown";
     }
 }
+
 

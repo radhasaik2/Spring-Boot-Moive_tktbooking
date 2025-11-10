@@ -19,10 +19,12 @@ public class HibernateConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
+        //updated package name
         sessionFactory.setPackagesToScan("com.sat.tmf.movietkt");
         Properties props = new Properties();
         props.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         props.put("hibernate.show_sql", true);
+        //properity to control schema update/creation
         props.put("hibernate.hbm2ddl.auto","update");
         sessionFactory.setHibernateProperties(props);
         return sessionFactory;

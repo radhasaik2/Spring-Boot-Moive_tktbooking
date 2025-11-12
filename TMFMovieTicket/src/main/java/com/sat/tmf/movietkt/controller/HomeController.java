@@ -11,4 +11,8 @@ public class HomeController {
         model.addAttribute("message", "🎬 Welcome to TMF Movie Ticket App with Spring Boot MVC");
         return "home";
     }
+    @GetMapping("/login")
+    public String Login() {
+        return "login";
 }
+

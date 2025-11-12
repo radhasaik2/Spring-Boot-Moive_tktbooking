@@ -21,7 +21,7 @@ public class UserController {
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("contentPage", "/WEB-INF/views/pages/register.jsp");
+        model.addAttribute("contentPage", "/WEB-INF/views/register.jsp");
         model.addAttribute("pageTitle", "Register");
         return "layout/layout";
     }
@@ -34,7 +34,7 @@ public class UserController {
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
         }
-        model.addAttribute("contentPage", "/WEB-INF/views/pages/register.jsp");
+        model.addAttribute("contentPage", "/WEB-INF/views/register.jsp");
         return "layout/layout";
     }
 
@@ -66,4 +66,5 @@ public class UserController {
         return "layout/layout";
     }
 }
+
 

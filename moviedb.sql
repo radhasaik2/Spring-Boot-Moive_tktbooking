@@ -20,6 +20,12 @@ insert into movies (title, language, genre, duration, description, posterUrl) va
 ("Demon Slayer: Kimetsu no Yaiba Infinity Castle", 'Hindi,Japanese', 'Adventure,Action', 190, 'Tanjiro Kamado and other members of the Demon Slayer Corps find themselves in an epic battle at Infinity Castle.', 'https://example.com/dangal.jpg'),
 ('Chainsaw Man - The Movie: Reze Arc', 'English,Japanese', 'Action,Comedy', 185, 'Chainsaw Man faces his deadliest battle yet in a brutal war between devils, hunters and secret enemies.', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSlacjk-N2t0Ool13mp3eZJAHGCfN-ce_J6qt6BsL08mYbzeJetpHS2kTjRzy8kZMVHdP_OnA');
 
+-- MovieReviews
+insert into movie_reviews (movie_id, user_id, rating, comment, createdAt) values
+(1, 1, 5, 'Amazing movie! Enjoyed a lot ever!', NOW()),
+(1, 2, 4, 'Great start of the fight, waiting for next movie.', NOW()),
+(2, 1, 5, 'Brilliant performances with such an eyes-gambling character.', NOW());
+
 -- Payments
 insert into payments (booking_id, user_id, amount, status, txnId, gateway, createdAt) values
 (1, 1, 400.00, 'SUCCESS', 'txn_123456', 'RAZORPAY', NOW()),

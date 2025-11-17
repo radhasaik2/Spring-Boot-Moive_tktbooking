@@ -1,3 +1,4 @@
+<form method="get" action="payment/admin/refunds">
 <div class="container mt-4">
     <h2> Refund Management</h2>
     <table class="table table-striped table-bordered mt-3">
@@ -33,3 +34,4 @@
         <div class="alert alert-info">No refunds found.</div>
     </c:if>
 </div>
+</form>

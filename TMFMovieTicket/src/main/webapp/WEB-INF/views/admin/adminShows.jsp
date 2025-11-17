@@ -1,6 +1,7 @@
+<form method="get" action="${pageContext.request.contextPath}/admin/shows/screen">
 <div class="container mt-4">
-    <h2>Shows for ${screen.name}</h2>
-    <a href="${pageContext.request.contextPath}/admin/shows/add/${screen.id}" class="btn btn-success mb-3">
+    <h2>Shows for ${screen.name}</h2> <!-- /${screen.id} -->
+    <a href="${pageContext.request.contextPath}/admin/shows/add" class="btn btn-success mb-3">
         <i class="fa fa-plus"></i> Add Show
     </a>
 
@@ -36,3 +37,4 @@
          Back to Screens
     </a>
 </div>
+</form>

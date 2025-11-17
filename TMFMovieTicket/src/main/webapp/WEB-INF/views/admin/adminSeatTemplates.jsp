@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<form method="get" action="${pageContext.request.contextPath}/admin/templates/screen">
 <div class="container mt-4">
-    <h2> Seat Templates for ${screen.name}</h2>
-    <a href="${pageContext.request.contextPath}/admin/templates/add/${screen.id}" class="btn btn-success mb-3">
+    <h2> Seat Templates for ${screen.name}</h2> <!-- /${screen.id} -->
+    <a href="${pageContext.request.contextPath}/admin/templates/add" class="btn btn-success mb-3">
         <i class="fa fa-plus"></i> Add Template
     </a>
 
@@ -40,8 +41,9 @@
         </c:forEach>
         </tbody>
     </table>
-
-    <a href="${pageContext.request.contextPath}/admin/screens/theater/${screen.theater.id}" class="btn btn-secondary mt-3">
+<!-- /${screen.theater.id} -->
+    <a href="${pageContext.request.contextPath}/admin/screens/theater" class="btn btn-secondary mt-3">
          Back to Screens
     </a>
 </div>
+</form>

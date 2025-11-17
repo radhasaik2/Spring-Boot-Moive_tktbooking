@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<form method="get" action="${pageContext.request.contextPath}/admin/screens/theater">
 <div class="container mt-4">
     <h2> Manage Screens for ${theater.name}</h2>
-    <a href="${pageContext.request.contextPath}/admin/screens/add/${theater.id}" class="btn btn-success mb-3">
+    <a href="${pageContext.request.contextPath}/admin/screens/add" class="btn btn-success mb-3">
         <i class="fa fa-plus"></i> Add Screen
     </a>
 
@@ -41,3 +42,4 @@
 
     <a href="${pageContext.request.contextPath}/admin/theaters" class="btn btn-secondary mt-2"> Back to Theaters</a>
 </div>
+</form>

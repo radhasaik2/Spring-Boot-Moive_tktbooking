@@ -1,3 +1,4 @@
+<form method="get" action="${pageContext.request.contextPath}/admin/theaters"></form>
 <div class="container mt-4">
     <h2> Theater Management</h2>
     <a href="${pageContext.request.contextPath}/admin/theaters/add" class="btn btn-success mb-3">

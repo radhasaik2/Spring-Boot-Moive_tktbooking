@@ -26,7 +26,7 @@
             <input type="datetime-local" name="showTime" class="form-control" required/>
         </div>
 
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a href="${pageContext.request.contextPath}/admin/shows/screen/${screen.id}" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save</button> <!-- /${screen.id} -->
+        <a href="${pageContext.request.contextPath}/admin/shows/screen" class="btn btn-secondary">Cancel</a>
     </form>
 </div>

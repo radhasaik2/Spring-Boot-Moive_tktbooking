@@ -1,7 +1,7 @@
 <div class="container mt-4">
     <h2> Manage Movies</h2>
 
-    <form method="get" action="${pageContext.request.contextPath}/admin/movies" class="mb-3">
+    <form method="get" action="${pageContext.request.contextPath}/admin/movies/Movies" class="mb-3">
         <input type="text" name="search" value="${search}" placeholder="Search movies..." class="form-control" style="width:300px; display:inline-block;">
         <button type="submit" class="btn btn-primary">Search</button>
         <a href="${pageContext.request.contextPath}/admin/movies/add" class="btn btn-success float-end">

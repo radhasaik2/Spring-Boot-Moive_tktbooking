@@ -1,6 +1,6 @@
 <div class="container mt-4">
-    <h2>${pageTitle}</h2>
-    <form method="post" action="${pageContext.request.contextPath}/admin/templates/${template.id == null ? 'add' : 'edit'}">
+    <h2>${pageTitle}</h2> <!-- ${template.id == null ? 'add' : 'edit'} -->
+    <form method="post" action="${pageContext.request.contextPath}/admin/templates/add">
         <input type="hidden" name="id" value="${template.id}"/>
         <input type="hidden" name="screen.id" value="${screen.id}"/>
 
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a href="${pageContext.request.contextPath}/admin/templates/screen/${screen.id}" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save</button> <!-- /${screen.id} -->
+        <a href="${pageContext.request.contextPath}/admin/templates/screen" class="btn btn-secondary">Cancel</a>
     </form>
 </div>

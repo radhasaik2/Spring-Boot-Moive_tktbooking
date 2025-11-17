@@ -1,6 +1,6 @@
 <div class="container mt-4">
-    <h2>${pageTitle}</h2>
-    <form method="post" action="${pageContext.request.contextPath}/admin/theaters/${theater.id == null ? 'add' : 'edit'}">
+    <h2>${pageTitle}</h2> <!-- /${theater.id == null ? 'add' : 'edit'} -->
+    <form method="post" action="${pageContext.request.contextPath}/admin/theaters/add">
         <input type="hidden" name="id" value="${theater.id}"/>
         <div class="mb-3">
             <label>Name</label>

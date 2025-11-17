@@ -11,6 +11,7 @@
     </style>
 </head>
 <body>
+<form method="get" action="${pageContext.request.contextPath}/admin/seats/template">
 <div class="container mt-4">
     <h2>${pageTitle}</h2>
 
@@ -22,11 +23,12 @@
 
     <div id="seatGrid" class="seat-grid"></div>
 
-    <div class="mt-3 text-center">
+    <div class="mt-3 text-center"> <!-- /admin/templates/screen/${template.screen.id} -->
         <button class="btn btn-primary" onclick="saveLayout()"> Save Layout</button>
-        <a href="${pageContext.request.contextPath}/admin/templates/screen/${template.screen.id}" class="btn btn-secondary">Cancel</a>
+        <a href="${pageContext.request.contextPath}/admin/templates/screen" class="btn btn-secondary">Cancel</a>
     </div>
 </div>
+</form>
 
 <script>
     const rows = ${template.rows};

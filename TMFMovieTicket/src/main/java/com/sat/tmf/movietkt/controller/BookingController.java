@@ -29,50 +29,60 @@ public class BookingController {
     @Autowired private TemplateSeatService seatService;
     @Autowired private UserService userService;
 
+    @GetMapping("/movieshows")
+    public String Shows() {
+    	return "shows";
+    }
     // View seat map for a show
-    @GetMapping("/select/{showId}")
-    public String selectSeats(@PathVariable Integer showId, Model model) {
-        Show show = showService.findById(showId);
-        model.addAttribute("show", show);
-        model.addAttribute("templateSeats", seatService.findByTemplateId(show.getSeatTemplate().getId()));
-        model.addAttribute("contentPage", "/WEB-INF/views/user/selectSeats.jsp");
-        model.addAttribute("pageTitle", "Select Seats for " + show.getMovie().getTitle());
-        return "layout/layout";
+    @GetMapping("/seats")
+    public String Seats() {
+//    public String selectSeats(@PathVariable Integer showId, Model model) {
+//        Show show = showService.findById(showId);
+//        model.addAttribute("show", show);
+//        model.addAttribute("templateSeats", seatService.findByTemplateId(show.getSeatTemplate().getId()));
+//        model.addAttribute("contentPage", "/WEB-INF/views/user/selectSeats.jsp");
+//        model.addAttribute("pageTitle", "Select Seats for " + show.getMovie().getTitle());
+        return "selectSeats";
     }
 
     // Hold seats
-    @PostMapping("/hold")
-    public String holdSeats(@RequestParam Integer showId,
-                            @RequestParam List<Integer> seatIds,
-                            Principal principal, Model model) {
-        User user = userService.findByUsername(principal.getName());
-        Show show = showService.findById(showId);
-        Booking booking = bookingService.holdSeats(user, show, seatIds);
-        model.addAttribute("booking", booking);
-        model.addAttribute("contentPage", "/WEB-INF/views/user/confirmBooking.jsp");
-        model.addAttribute("pageTitle", "Confirm Booking");
-        return "layout/layout";
+    @GetMapping("/confirm")
+    public String Confirm() {
+//    @PostMapping("/hold")
+//    public String holdSeats(@RequestParam Integer showId,
+//                            @RequestParam List<Integer> seatIds,
+//                            Principal principal, Model model) {
+//        User user = userService.findByUsername(principal.getName());
+//        Show show = showService.findById(showId);
+//        Booking booking = bookingService.holdSeats(user, show, seatIds);
+//        model.addAttribute("booking", booking);
+//        model.addAttribute("contentPage", "/WEB-INF/views/user/confirmBooking.jsp");
+//        model.addAttribute("pageTitle", "Confirm Booking");
+        return "confirmBooking";
     }
 
     // Confirm booking
-    @PostMapping("/confirm")
-    public String confirmBooking(@RequestParam Integer bookingId, Model model) {
-        Booking booking = bookingService.confirmBooking(bookingId);
-        model.addAttribute("booking", booking);
-        model.addAttribute("contentPage", "/WEB-INF/views/user/bookingSuccess.jsp");
-        model.addAttribute("pageTitle", "Booking Confirmed");
-        return "layout/layout";
+//    @PostMapping("/confirm")
+    @GetMapping("/success")
+    public String Success() {
+//    public String confirmBooking(@RequestParam Integer bookingId, Model model) {
+//        Booking booking = bookingService.confirmBooking(bookingId);
+//        model.addAttribute("booking", booking);
+//        model.addAttribute("contentPage", "/WEB-INF/views/user/bookingSuccess.jsp");
+//        model.addAttribute("pageTitle", "Booking Confirmed");
+        return "bookingSuccess";
     }
 
     // View booking history
     @GetMapping("/history")
-    public String viewHistory(Principal principal, Model model) {
-        User user = userService.findByUsername(principal.getName());
-        List<Booking> bookings = bookingService.findByUser(user);
-        model.addAttribute("bookings", bookings);
-        model.addAttribute("contentPage", "/WEB-INF/views/user/bookingHistory.jsp");
-        model.addAttribute("pageTitle", "My Bookings");
-        return "layout/layout";
+    public String History() {
+//    public String viewHistory(Principal principal, Model model) {
+//        User user = userService.findByUsername(principal.getName());
+//        List<Booking> bookings = bookingService.findByUser(user);
+//        model.addAttribute("bookings", bookings);
+//        model.addAttribute("contentPage", "/WEB-INF/views/user/bookingHistory.jsp");
+//        model.addAttribute("pageTitle", "My Bookings");
+        return "bookingHistory";
     }
 }
 

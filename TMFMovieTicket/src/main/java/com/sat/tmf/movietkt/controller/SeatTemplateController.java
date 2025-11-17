@@ -22,26 +22,26 @@ public class SeatTemplateController {
     @Autowired
     private ScreenService screenService;
 
-    // List templates for a screen
-    @GetMapping("/screen/{screenId}")
-    public String listTemplates(@PathVariable Integer screenId, Model model) {
-        Screen screen = screenService.findById(screenId);
-        List<SeatTemplate> templates = seatTemplateService.findByScreen(screen);
-        model.addAttribute("screen", screen);
-        model.addAttribute("templates", templates);
+    // List templates for a screen - /{screenId}
+    @GetMapping("/screen") // - @PathVariable Integer screenId,
+    public String listTemplates( Model model) {
+//        Screen screen = screenService.findById(screenId);
+//        List<SeatTemplate> templates = seatTemplateService.findByScreen(screen);
+//        model.addAttribute("screen", screen);
+//        model.addAttribute("templates", templates);
         model.addAttribute("contentPage", "/WEB-INF/views/admin/adminSeatTemplates.jsp");
-        model.addAttribute("pageTitle", "Seat Templates for " + screen.getName());
+//        model.addAttribute("pageTitle", "Seat Templates for " + screen.getName());
         return "layout/layout";
     }
 
-    // Show add form
-    @GetMapping("/add/{screenId}")
-    public String showAddForm(@PathVariable Integer screenId, Model model) {
-        Screen screen = screenService.findById(screenId);
-        SeatTemplate template = new SeatTemplate();
-        template.setScreen(screen);
-        model.addAttribute("template", template);
-        model.addAttribute("screen", screen);
+    // Show add form - /{screenId}
+    @GetMapping("/add") // - @PathVariable Integer screenId,
+    public String showAddForm( Model model) {
+//        Screen screen = screenService.findById(screenId);
+//        SeatTemplate template = new SeatTemplate();
+//        template.setScreen(screen);
+//        model.addAttribute("template", template);
+//        model.addAttribute("screen", screen);
         model.addAttribute("contentPage", "/WEB-INF/views/admin/addSeatTemplate.jsp");
         model.addAttribute("pageTitle", "Create Seat Template");
         return "layout/layout";
@@ -51,7 +51,8 @@ public class SeatTemplateController {
     @PostMapping("/add")
     public String createTemplate(@ModelAttribute SeatTemplate template) {
         seatTemplateService.createTemplate(template);
-        return "redirect:/admin/templates/screen/" + template.getScreen().getId();
+//        return "redirect:/admin/templates/screen/" + template.getScreen().getId();
+        return "redirect:/admin/templates/screen"; 
     }
 
     // Edit form

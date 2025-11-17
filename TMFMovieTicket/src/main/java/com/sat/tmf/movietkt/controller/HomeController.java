@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("message", "🎬 Welcome to TMF Movie Ticket App with Spring Boot MVC");
+        model.addAttribute("message", "Welcome to TMF Movie Ticket App with Spring Boot MVC");
         return "home";
     }
-    @GetMapping("/login")
-    public String Login() {
-        return "login";
+    
+    @GetMapping("/booking/cancel")
+    public String Bookings() {
+    	return "myBookings";
+    }
 }
 

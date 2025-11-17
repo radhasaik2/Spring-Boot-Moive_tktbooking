@@ -32,32 +32,32 @@ public class ShowController {
     @Autowired private SeatTemplateService seatTemplateService;
     @Autowired private MovieService movieService;
 
-    // List all shows for a screen
-    @GetMapping("/screen/{screenId}")
-    public String listShows(@PathVariable Integer screenId, Model model) {
-        Screen screen = screenService.findById(screenId);
-        List<Show> shows = showService.findByScreen(screen);
-        model.addAttribute("screen", screen);
-        model.addAttribute("shows", shows);
+    // List all shows for a screen - /{screenId}
+    @GetMapping("/screen") // - @PathVariable Integer screenId, 
+    public String listShows(Model model) {
+//        Screen screen = screenService.findById(screenId);
+//        List<Show> shows = showService.findByScreen(screen);
+//        model.addAttribute("screen", screen);
+//        model.addAttribute("shows", shows);
         model.addAttribute("contentPage", "/WEB-INF/views/admin/adminShows.jsp");
-        model.addAttribute("pageTitle", "Shows for " + screen.getName());
+//        model.addAttribute("pageTitle", "Shows for " + screen.getName());
         return "layout/layout";
     }
 
-    // Show form for adding a new show
-    @GetMapping("/add/{screenId}")
-    public String showAddForm(@PathVariable Integer screenId, Model model) {
-        Screen screen = screenService.findById(screenId);
-        List<Movie> movies = movieService.findAllMovies();
-        List<SeatTemplate> templates = seatTemplateService.findByScreen(screen);
-
-        Show show = new Show();
-        show.setScreen(screen);
-
-        model.addAttribute("screen", screen);
-        model.addAttribute("show", show);
-        model.addAttribute("movies", movies);
-        model.addAttribute("templates", templates);
+    // Show form for adding a new show - /{screenId}
+    @GetMapping("/add") // - @PathVariable Integer screenId,
+    public String showAddForm( Model model) {
+//        Screen screen = screenService.findById(screenId);
+//        List<Movie> movies = movieService.findAllMovies();
+//        List<SeatTemplate> templates = seatTemplateService.findByScreen(screen);
+//
+//        Show show = new Show();
+//        show.setScreen(screen);
+//
+//        model.addAttribute("screen", screen);
+//        model.addAttribute("show", show);
+//        model.addAttribute("movies", movies);
+//        model.addAttribute("templates", templates);
         model.addAttribute("contentPage", "/WEB-INF/views/admin/addShow.jsp");
         model.addAttribute("pageTitle", "Add New Show");
         return "layout/layout";
@@ -65,20 +65,22 @@ public class ShowController {
 
     // Handle creation
     @PostMapping("/add")
-    public String createShow(@ModelAttribute Show show,
-                             @RequestParam("movie.id") Integer movieId,
-                             @RequestParam("screen.id") Integer screenId,
-                             @RequestParam("seatTemplate.id") Integer templateId,
-                             @RequestParam("showTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime showTime) {
-
-        show.setMovie(movieService.findById(movieId));
-        show.setScreen(screenService.findById(screenId));
-        show.setSeatTemplate(seatTemplateService.findById(templateId));
-        show.setShowTime(showTime);
-        show.setTotalSeats(show.getSeatTemplate().getRows() * show.getSeatTemplate().getCols());
-
-        showService.createShow(show);
-        return "redirect:/admin/shows/screen/" + screenId;
+    public String Show() {
+//    public String createShow(@ModelAttribute Show show,
+//                             @RequestParam("movie.id") Integer movieId,
+//                             @RequestParam("screen.id") Integer screenId,
+//                             @RequestParam("seatTemplate.id") Integer templateId,
+//                             @RequestParam("showTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime showTime) {
+//
+//        show.setMovie(movieService.findById(movieId));
+//        show.setScreen(screenService.findById(screenId));
+//        show.setSeatTemplate(seatTemplateService.findById(templateId));
+//        show.setShowTime(showTime);
+//        show.setTotalSeats(show.getSeatTemplate().getRows() * show.getSeatTemplate().getCols());
+//
+//        showService.createShow(show);
+//        return "redirect:/admin/shows/screen/" + screenId;
+        return "redirect:/admin/shows/screen";
     }
 
     // Delete show

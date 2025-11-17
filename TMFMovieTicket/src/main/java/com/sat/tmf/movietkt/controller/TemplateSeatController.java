@@ -24,18 +24,20 @@ public class TemplateSeatController {
     @Autowired
     private TemplateSeatService templateSeatService;
 
-    // View & edit seat layout
-    @GetMapping("/template/{templateId}")
-    public String editSeatLayout(@PathVariable Integer templateId, Model model) {
-        SeatTemplate template = seatTemplateService.findById(templateId);
-        List<TemplateSeat> seats = templateSeatService.findByTemplateId(templateId);
-        model.addAttribute("template", template);
-        model.addAttribute("seats", seats);
+    // View & edit seat layout - /{templateId}
+    @GetMapping("/template") // - @PathVariable Integer templateId,
+    public String editSeatLayout(Model model) {
+//        SeatTemplate template = seatTemplateService.findById(templateId);
+//        List<TemplateSeat> seats = templateSeatService.findByTemplateId(templateId);
+//        model.addAttribute("template", template);
+//        model.addAttribute("seats", seats);
         model.addAttribute("contentPage", "/WEB-INF/views/admin/adminManageSeats.jsp");
-        model.addAttribute("pageTitle", "Manage Seats for " + template.getName());
+//        model.addAttribute("pageTitle", "Manage Seats for " + template.getName());
         return "layout/layout";
     }
 
+    
+    
     // Save seat layout (AJAX)
     @PostMapping("/saveLayout/{templateId}")
     @ResponseBody

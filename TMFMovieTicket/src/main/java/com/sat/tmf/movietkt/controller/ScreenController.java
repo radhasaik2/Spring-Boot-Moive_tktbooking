@@ -22,26 +22,27 @@ public class ScreenController {
     @Autowired
     private TheaterService theaterService;
 
-    // List screens for a theater
-    @GetMapping("/theater/{theaterId}")
-    public String listScreens(@PathVariable Integer theaterId, Model model) {
-        Theater theater = theaterService.findById(theaterId);
-        List<Screen> screens = screenService.findByTheater(theater);
-        model.addAttribute("theater", theater);
-        model.addAttribute("screens", screens);
+    // List screens for a theater - /{theaterId}
+    @GetMapping("/theater")
+    public String Screen(Model model) {
+//    public String listScreens(@PathVariable Integer theaterId, Model model) {
+//        Theater theater = theaterService.findById(theaterId);
+//        List<Screen> screens = screenService.findByTheater(theater);
+//        model.addAttribute("theater", theater);
+//        model.addAttribute("screens", screens);
         model.addAttribute("contentPage", "/WEB-INF/views/admin/adminScreens.jsp");
-        model.addAttribute("pageTitle", "Manage Screens for " + theater.getName());
+//        model.addAttribute("pageTitle", "Manage Screens for " + theater.getName());
         return "layout/layout";
     }
 
-    // Show add screen form
-    @GetMapping("/add/{theaterId}")
-    public String showAddForm(@PathVariable Integer theaterId, Model model) {
-        Theater theater = theaterService.findById(theaterId);
-        Screen screen = new Screen();
-        screen.setTheater(theater);
-        model.addAttribute("screen", screen);
-        model.addAttribute("theater", theater);
+    // Show add screen form - /{theaterId}
+    @GetMapping("/add") // - @PathVariable Integer theaterId, 
+    public String showAddForm(Model model) {
+//        Theater theater = theaterService.findById(theaterId);
+//        Screen screen = new Screen();
+//        screen.setTheater(theater);
+//        model.addAttribute("screen", screen);
+//        model.addAttribute("theater", theater);
         model.addAttribute("contentPage", "/WEB-INF/views/admin/addScreen.jsp");
         model.addAttribute("pageTitle", "Add Screen");
         return "layout/layout";

@@ -28,18 +28,24 @@ public class MovieReviewController {
     @Autowired private MovieReviewService reviewService;
     @Autowired private UserService userService;
 
-    @GetMapping("/{id}")
-    public String movieDetails(@PathVariable Integer id, Model model) {
-        Movie movie = movieService.findById(id);
-        List<MovieReview> reviews = reviewService.findByMovie(movie);
-        Double avgRating = reviewService.getAverageRating(movie);
-
-        model.addAttribute("movie", movie);
-        model.addAttribute("reviews", reviews);
-        model.addAttribute("avgRating", avgRating);
-        model.addAttribute("contentPage", "/WEB-INF/views/user/movieDetails.jsp");
-        model.addAttribute("pageTitle", movie.getTitle());
-        return "layout/layout";
+    @GetMapping("/search")
+    public String SearchMovie() {
+    	return "searchMovies";
+    }
+    
+    @GetMapping("/movieDetails")
+    public String Details() {
+//    public String movieDetails(@PathVariable Integer id, Model model) {
+//        Movie movie = movieService.findById(id);
+//        List<MovieReview> reviews = reviewService.findByMovie(movie);
+//        Double avgRating = reviewService.getAverageRating(movie);
+//
+//        model.addAttribute("movie", movie);
+//        model.addAttribute("reviews", reviews);
+//        model.addAttribute("avgRating", avgRating);
+//        model.addAttribute("contentPage", "/WEB-INF/views/movieDetails.jsp");
+//        model.addAttribute("pageTitle", movie.getTitle());
+        return "movieDetails";
     }
 
     @PostMapping("/{id}/review")

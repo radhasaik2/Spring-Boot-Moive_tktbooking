@@ -38,6 +38,14 @@ public class UserController {
         return "layout/layout";
     }
 
+    
+    // =================== LOGIN ===================
+    @GetMapping("/login")
+    public String Login() {
+    	return "login";
+    }
+    
+    
     // =================== PROFILE ===================
     @GetMapping("/profile")
     public String viewProfile(Model model, Principal principal) {
@@ -66,5 +74,4 @@ public class UserController {
         return "layout/layout";
     }
 }
-
 

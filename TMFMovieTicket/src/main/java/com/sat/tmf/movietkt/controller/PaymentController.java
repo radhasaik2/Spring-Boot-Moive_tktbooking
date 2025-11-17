@@ -20,7 +20,7 @@ import com.sat.tmf.movietkt.service.PaymentService;
 import com.sat.tmf.movietkt.service.UserService;
 
 @Controller
-@RequestMapping("/payment")
+@RequestMapping("/movie")
 public class PaymentController {
 
     @Autowired private PaymentService paymentService;
@@ -28,21 +28,27 @@ public class PaymentController {
     @Autowired private UserService userService;
 
     // Initiate payment
-    @GetMapping("/start/{bookingId}")
-    public String startPayment(@PathVariable Integer bookingId, Principal principal, Model model) {
-        //created a implementation method for findById in Booking-impl
-        Booking booking = bookingService.findById(bookingId);
-        User user = userService.findByUsername(principal.getName());
-        Payment payment = paymentService.initiatePayment(booking, user, "RAZORPAY");
-
-        // In production: redirect to Razorpay checkout page
-        model.addAttribute("payment", payment);
-        model.addAttribute("booking", booking);
-        model.addAttribute("contentPage", "/WEB-INF/views/user/paymentPage.jsp");
-        model.addAttribute("pageTitle", "Make Payment");
-        return "layout/layout";
+//    @GetMapping("/start/{bookingId}")
+    @GetMapping("/paymentgateway")
+    public String Gateway() {
+//    public String startPayment(@PathVariable Integer bookingId, Principal principal, Model model) {
+//        Booking booking = bookingService.findById(bookingId);
+//        User user = userService.findByUsername(principal.getName());
+//        Payment payment = paymentService.initiatePayment(booking, user, "RAZORPAY");
+//
+//        // In production: redirect to Razorpay checkout page
+//        model.addAttribute("payment", payment);
+//        model.addAttribute("booking", booking);
+//        model.addAttribute("contentPage", "/WEB-INF/views/paymentPage.jsp");
+//        model.addAttribute("pageTitle", "Make Payment");
+        return "paymentPage";
     }
 
+    
+    @GetMapping("/payments")
+    public String Payment() {
+    	return "payment";
+    }
     // Razorpay or Stripe webhook (callback)
     @PostMapping("/webhook")
     @ResponseBody
@@ -64,5 +70,4 @@ public class PaymentController {
         return start != -1 ? payload.substring(start, start + 36) : "unknown";
     }
 }
-
 

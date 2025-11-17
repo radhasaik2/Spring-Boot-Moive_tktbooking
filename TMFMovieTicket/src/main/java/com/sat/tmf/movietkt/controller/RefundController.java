@@ -15,7 +15,7 @@ import com.sat.tmf.movietkt.service.RefundService;
 import com.sat.tmf.movietkt.service.UserService;
 
 @Controller
-@RequestMapping("/refunds")
+@RequestMapping("/payment")
 public class RefundController {
 
     @Autowired
@@ -24,19 +24,26 @@ public class RefundController {
     @Autowired
     private UserService userService;
 
-    // User view
-    @GetMapping
+    // User view    
+    @GetMapping("/refunds")
     public String userRefunds(Model model, Principal principal) {
-        User user = userService.findByUsername(principal.getName());
-        List<Refund> refunds = refundService.getRefundsForUser(user);
-        model.addAttribute("refunds", refunds);
-        model.addAttribute("contentPage", "/WEB-INF/views/user/userRefunds.jsp");
+//        User user = userService.findByUsername(principal.getName());
+//        List<Refund> refunds = refundService.getRefundsForUser(user);
+//        model.addAttribute("refunds", refunds);
+        model.addAttribute("contentPage", "/WEB-INF/views/userRefunds.jsp");
         model.addAttribute("pageTitle", "My Refunds");
         return "layout/layout";
     }
+    
+    @GetMapping("/refund/status")
+    public String Status(Model model) {
+    	model.addAttribute("contentPage", "/WEB-INF/views/refundStatus.jsp");
+        model.addAttribute("pageTitle", "My Refund Status");
+    	return "layout/layout";
+    }
 
     // Admin view
-    @GetMapping("/admin")
+    @GetMapping("/admin/refunds")
     public String adminRefunds(Model model) {
         List<Refund> refunds = refundService.getAllRefunds();
         model.addAttribute("refunds", refunds);

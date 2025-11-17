@@ -28,7 +28,7 @@ public class MovieController {
     private ShowService showService;
 
     // List all movies
-    @GetMapping
+    @GetMapping("/Movies")
     public String listMovies(Model model, @RequestParam(required = false) String search) {
         List<Movie> movies;
         if (search != null && !search.isEmpty()) {
@@ -66,19 +66,19 @@ public class MovieController {
         model.addAttribute("movie", movie);
         model.addAttribute("contentPage", "/WEB-INF/views/admin/addMovie.jsp");
         model.addAttribute("pageTitle", "Edit Movie");
-        return "layout/layout";
+        return "redirecr:/admin/movies";
     }
 
     // Delete movie
     @GetMapping("/delete/{id}")
     public String deleteMovie(@PathVariable Integer id) {
         movieService.deleteMovie(id);
-        return "redirect:/admin/movies";
+        return "redirect:/admin/movies/Movies";
     }
     
  // === USER MOVIE BROWSING ===
 
-    @GetMapping("/movies")
+    @GetMapping
     public String listMoviesForUser(@RequestParam(required = false) String search,
                                     @RequestParam(required = false) String language,
                                     Model model) {
@@ -92,21 +92,26 @@ public class MovieController {
 
         model.addAttribute("movies", movies);
         model.addAttribute("search", search);
-        model.addAttribute("contentPage", "/WEB-INF/views/user/movies.jsp");
+        model.addAttribute("contentPage", "/WEB-INF/views/movies.jsp");
         model.addAttribute("pageTitle", "Now Showing");
         return "layout/layout";
     }
-
-    @GetMapping("/movies/{id}/shows")
-    public String listShowsForMovie(@PathVariable Integer id, Model model) {
-        Movie movie = movieService.findById(id);
-        List<Show> shows = showService.findUpcomingShows(movie);
-        model.addAttribute("movie", movie);
-        model.addAttribute("shows", shows);
-        model.addAttribute("contentPage", "/WEB-INF/views/user/movieShows.jsp");
-        model.addAttribute("pageTitle", movie.getTitle() + " - Showtimes");
-        return "layout/layout";
+    
+    @GetMapping("/viewShows")
+    public String Movies() {
+    	return "movieShows";
     }
+
+//    @GetMapping("/viewShows")
+//    public String listShowsForMovie(@PathVariable Integer id, Model model) {
+//        Movie movie = movieService.findById(id);
+//        List<Show> shows = showService.findUpcomingShows(movie);
+//        model.addAttribute("movie", movie);
+//        model.addAttribute("shows", shows);
+//        model.addAttribute("contentPage", "/WEB-INF/views/movieShows.jsp");
+//        model.addAttribute("pageTitle", movie.getTitle() + " - Showtimes");
+//        return "movieShows";
+//    }
 
 }
 

@@ -1,7 +1,8 @@
 <div class="container mt-4">
     <h2>${pageTitle}</h2>
-    <form id="bookingForm" method="post" action="${pageContext.request.contextPath}/booking/hold">
-        <input type="hidden" name="showId" value="${show.id}" />
+    <form id="bookingForm" method="get" action="${pageContext.request.contextPath}/booking/seats">
+    <a href="booking/confirm"><button class="btn btn-primary mt-3">Proceed to Confirm</button></a>
+        <!--<input type="hidden" name="showId" value="${show.id}" />
         <div class="seat-grid" style="display: grid; grid-template-columns: repeat(${show.seatTemplate.cols}, 40px); gap: 6px;">
             <c:forEach var="seat" items="${templateSeats}">
                 <div class="seat ${seat.seatType.toLowerCase()}" data-id="${seat.id}" data-price="${seat.price}">
@@ -10,7 +11,7 @@
             </c:forEach>
         </div>
         <input type="hidden" name="seatIds" id="seatIds"/>
-        <button class="btn btn-primary mt-3">Proceed to Confirm</button>
+        <a href="booking/confirmBooking"><button class="btn btn-primary mt-3">Proceed to Confirm</button></a>
     </form>
 </div>
 
@@ -25,7 +26,7 @@
             document.getElementById('seatIds').value = Array.from(selectedSeats);
         });
     });
-</script>
+</script>-->
 
 <style>
     .seat { width: 40px; height: 40px; border-radius: 4px; text-align: center; line-height: 40px; cursor: pointer; }

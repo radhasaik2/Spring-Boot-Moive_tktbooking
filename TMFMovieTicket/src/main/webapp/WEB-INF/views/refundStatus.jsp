@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
+<form method="get" action="payment/refund/status">
 <div class="container mt-5 col-md-6">
     <div class="card p-4 text-center shadow-sm">
         <h3>Refund Status</h3>
@@ -17,8 +18,9 @@
                ${refund.status}
            </span>
         </p>
-        <a href="${pageContext.request.contextPath}/user/bookings" class="btn btn-primary mt-3">Back to My Bookings</a>
+        <a href="${pageContext.request.contextPath}/booking/cancel" class="btn btn-primary mt-3">Back to My Bookings</a>
     </div>
 </div>
+</form>
 </body>
 </html>

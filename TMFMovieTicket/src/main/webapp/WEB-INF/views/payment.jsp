@@ -14,9 +14,9 @@
         <p><strong>Seats:</strong> ${booking.seats.size()}</p>
         <p><strong>Amount:</strong> Rs.${booking.amount}</p>
     </div>
-    <form action="${pageContext.request.contextPath}/payment/complete" method="post" class="mt-3">
+    <form action="${pageContext.request.contextPath}/movie/payments" method="get" class="mt-3">
         <input type="hidden" name="bookingId" value="${booking.id}">
-        <button type="submit" class="btn btn-success w-100">Pay Now</button>
+        <a href="booking/success"><button type="submit" class="btn btn-success w-100">Pay Now</button></a>
     </form>
 </div>
 </body>

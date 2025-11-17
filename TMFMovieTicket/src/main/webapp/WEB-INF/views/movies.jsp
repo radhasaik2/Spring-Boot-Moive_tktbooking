@@ -2,7 +2,7 @@
     <h2 class="mb-4 text-center"> Now Showing</h2>
 
     <!-- Search Form -->
-    <form method="get" action="${pageContext.request.contextPath}/movies" class="d-flex justify-content-center mb-4">
+    <form method="get" action="${pageContext.request.contextPath}/admin/movies" class="d-flex justify-content-center mb-4">
         <input type="text" name="search" value="${search}" placeholder="Search by title or genre"
                class="form-control" style="width: 300px; margin-right: 10px;">
         <button type="submit" class="btn btn-primary">Search</button>
@@ -23,7 +23,7 @@
                             <small><strong>Genre:</strong> ${m.genre}</small><br/>
                             <small><strong>Duration:</strong> ${m.duration} min</small>
                         </p>
-                        <a href="${pageContext.request.contextPath}/movies/${m.id}/shows" class="btn btn-outline-primary btn-sm">
+                        <a href="${pageContext.request.contextPath}/admin/movies/viewShows" class="btn btn-outline-primary btn-sm">
                             View Showtimes
                         </a>
                     </div>

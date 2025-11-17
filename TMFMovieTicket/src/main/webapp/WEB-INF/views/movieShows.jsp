@@ -1,3 +1,4 @@
+<form method="get" action="admin/movies/viewShows">
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-4">
@@ -34,7 +35,7 @@
                     <td>${s.screen.name}</td>
                     <td>${s.showTime}</td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/booking/select/${s.id}" class="btn btn-success btn-sm">
+                        <a href="${pageContext.request.contextPath}/booking/movieshows" class="btn btn-success btn-sm">
                             Book Now
                         </a>
                     </td>
@@ -48,3 +49,4 @@
         <div class="alert alert-warning">No upcoming shows available for this movie.</div>
     </c:if>
 </div>
+</form>

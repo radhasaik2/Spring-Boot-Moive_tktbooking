@@ -1,3 +1,4 @@
+<form method="get" action="booking/history">
 <div class="container mt-4">
     <h2>My Bookings</h2>
     <table class="table table-bordered">
@@ -23,3 +24,4 @@
         </tbody>
     </table>
 </div>
+</form>

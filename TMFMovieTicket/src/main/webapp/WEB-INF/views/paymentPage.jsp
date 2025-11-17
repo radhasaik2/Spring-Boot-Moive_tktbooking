@@ -1,11 +1,13 @@
+<form method="get" action="movie/paymentgateway">
 <div class="container mt-4 text-center">
     <h2>Make Payment</h2>
     <p>Booking ID: <strong>${booking.id}</strong></p>
     <p>Amount to Pay: Rs. ${booking.amount}</p>
     <p>Gateway: ${payment.gateway}</p>
 
-    <button id="payButton" class="btn btn-success">Pay Now</button>
+    <a href="movie/payments"><button id="payButton" class="btn btn-success">Pay Now</button></a>
 </div>
+</form>
 
 <script>
     document.getElementById('payButton').addEventListener('click', function() {

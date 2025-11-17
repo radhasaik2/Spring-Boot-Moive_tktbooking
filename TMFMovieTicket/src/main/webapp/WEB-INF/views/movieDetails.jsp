@@ -1,3 +1,4 @@
+<form method="get" action="movies/movieDetails">
 <div class="container mt-4">
     <div class="row mb-4">
         <div class="col-md-4">
@@ -16,12 +17,12 @@
                 * <strong>${avgRating != null ? (avgRating) : 'No ratings yet'}</strong> / 5
             </div>
 
-            <a href="${pageContext.request.contextPath}/movies/${movie.id}/shows" class="btn btn-primary">
+            <a href="${pageContext.request.contextPath}/admin/movies/viewShows" class="btn btn-primary">
                 View Showtimes
             </a>
         </div>
     </div>
-
+</form>
     <hr/>
 
     <!-- Trailer -->

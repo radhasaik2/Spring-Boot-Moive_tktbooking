@@ -26,7 +26,8 @@
                         <td>${booking.status}</td>
                         <td>
                             <c:if test="${booking.status eq 'CONFIRMED'}">
-                                <form action="${pageContext.request.contextPath}/booking/cancel" method="post">
+                                <form action="${pageContext.request.contextPath}/booking/cancel" method="get">
+                                <a href="payment/refunds">User Refunds</a>
                                     <input type="hidden" name="bookingId" value="${booking.id}">
                                     <button class="btn btn-danger btn-sm">Cancel</button>
                                 </form>

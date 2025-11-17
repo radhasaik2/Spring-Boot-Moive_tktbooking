@@ -2,15 +2,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <div class="container mt-4">
-    <h2 class="mb-4 text-center">
-        🎭 Theater Admin Dashboard
-    </h2>
-
+    <h2 class="mb-4 text-center">Theater Admin Dashboard</h2>
     <div class="alert alert-info text-center">
-        Welcome, <strong>${sessionScope.user.fullName}</strong>!  
-        Manage your theater’s movies, screens, and show schedules below.
+        Welcome, <strong>${sessionScope.user.fullName}</strong>
     </div>
-
     <!-- Tabs for navigation -->
     <ul class="nav nav-tabs" id="adminTabs" role="tablist">
         <li class="nav-item" role="presentation">
@@ -23,18 +18,16 @@
             <button class="nav-link" id="shows-tab" data-bs-toggle="tab" data-bs-target="#shows" type="button" role="tab">Shows</button>
         </li>
     </ul>
-
     <div class="tab-content mt-3" id="adminTabsContent">
-
+    
         <!-- ======================= MOVIES TAB ======================= -->
         <div class="tab-pane fade show active" id="movies" role="tabpanel" aria-labelledby="movies-tab">
             <div class="d-flex justify-content-between align-items-center mb-2">
-                <h5>🎞 Movies Playing in Your Theater</h5>
+                <h5>Movies Playing in Your Theater</h5>
                 <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addMovieModal">
                     <i class="fa fa-plus"></i> Add Movie
                 </button>
             </div>
-
             <table class="table table-striped">
                 <thead>
                     <tr><th>Title</th><th>Language</th><th>Duration</th><th>Genre</th><th></th></tr>
@@ -66,7 +59,6 @@
                     <i class="fa fa-plus"></i> Add Screen
                 </button>
             </div>
-
             <table class="table table-striped">
                 <thead><tr><th>Name</th><th>Description</th><th>Actions</th></tr></thead>
                 <tbody>

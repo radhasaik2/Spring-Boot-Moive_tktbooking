@@ -9,8 +9,8 @@
     </p>
     <p>Total Amount: Rs. ${booking.amount}</p>
 
-    <form method="post" action="${pageContext.request.contextPath}/booking/confirm">
+    <form method="get" action="${pageContext.request.contextPath}/booking/confirm">
         <input type="hidden" name="bookingId" value="${booking.id}"/>
-        <button class="btn btn-success">Confirm & Pay</button>
+        <a href="movie/paymentgateway"><button class="btn btn-success">Confirm & Pay</button></a>
     </form>
 </div>

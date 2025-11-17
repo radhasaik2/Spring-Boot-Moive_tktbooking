@@ -1,5 +1,7 @@
+<form method="get" action="payment/refunds">
 <div class="container mt-4">
     <h2> My Refunds</h2>
+    <a href="/refund/status">Status</a>
     <table class="table table-bordered mt-3">
         <thead class="table-light">
             <tr>
@@ -33,3 +35,4 @@
         <div class="alert alert-info mt-3">No refunds found.</div>
     </c:if>
 </div>
+</form>

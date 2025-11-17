@@ -21,6 +21,8 @@
         <div class="col-md-3">
             <button class="btn btn-primary w-100">Search</button>
         </div>
+        <a href="${pageContext.request.contextPath}/movies/movieDetails" 
+                                   class="btn btn-outline-primary btn-sm">View Shows</a>
     </form>
 
     <c:if test="${not empty movies}">
@@ -36,8 +38,8 @@
                             <td>${movie.title}</td>
                             <td>${movie.language}</td>
                             <td>${movie.duration} mins</td>
-                            <td><a href="${pageContext.request.contextPath}/shows?movieId=${movie.id}" 
-                                   class="btn btn-outline-primary btn-sm">View Shows</a></td>
+                            <!--<td><a href="${pageContext.request.contextPath}/movies/movieDetails" 
+                                   class="btn btn-outline-primary btn-sm">View Shows</a></td>-->
                         </tr>
                     </c:forEach>
                 </tbody>

@@ -1,3 +1,4 @@
+<form method="get" action="booking/success">
 <div class="container mt-4 text-center">
     <h2> Booking Confirmed!</h2>
     <p>Your booking ID: <strong>${booking.id}</strong></p>
@@ -10,3 +11,4 @@
     <p>Total Paid: Rs. ${booking.amount}</p>
     <a href="${pageContext.request.contextPath}/booking/history" class="btn btn-secondary mt-3">View Booking History</a>
 </div>
+</form>
